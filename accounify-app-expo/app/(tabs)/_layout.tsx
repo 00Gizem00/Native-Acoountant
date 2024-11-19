@@ -37,7 +37,7 @@ export default function TabLayout() {
         name="explore"
         options={{
           title: 'Capture',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="plus.bubble.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="plus.circle.fill" color={color} />,
         }}
       />
       <Tabs.Screen
