@@ -14,10 +14,11 @@ const MAPPING = {
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
   'plus.circle.fill': 'add-circle',
+  'gear': 'settings',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
-    React.ComponentProps<typeof MaterialIcons>['name']
+    | React.ComponentProps<typeof MaterialIcons>['name']
   >
 >;
 
