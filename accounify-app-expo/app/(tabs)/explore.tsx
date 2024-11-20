@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { View, Alert, StyleSheet } from 'react-native';
+import { Alert, StyleSheet } from 'react-native';
+import { View, Text, Button } from "react-native-ui-lib";
 import { requestPermission } from '@/utils/permissions';
 import * as ImagePicker from 'expo-image-picker';
 import * as DocumentPicker from 'expo-document-picker';
 import ImagePreview from '@/components/ImagePreview';
 import PDFPreview from '@/components/PdfPreview';
 import UploadActions from '@/components/UploadActions';
-import Button from '@/components/ui/Button';
+
 
 export default function TabTwoScreen() {
   const [image, setImage] = useState<string | null>(null);
@@ -89,7 +90,7 @@ export default function TabTwoScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <View flex bg-white center>
       {showUploadButtons ? (
         <UploadActions 
           onPickImage={pickImage} 
@@ -97,12 +98,13 @@ export default function TabTwoScreen() {
           onUploadPDF={uploadPdf} 
         />
       ) : (
-        <View style={styles.previewContainer}>
+        <View center paddingV-20 paddingH-30>
           {image && <ImagePreview imageUri={image} onRemove={resetUpload} />}
           {pdf && !pdf.canceled && (
             <PDFPreview pdfName={pdf.assets[0].name || 'Unknown'} onRemove={resetUpload} />
           )}
           <Button
+            marginT-20
             label={isUploading ? "Uploading..." : "Upload"}
             onPress={handleUpload}
           />
@@ -112,21 +114,3 @@ export default function TabTwoScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  previewContainer: {
-    width: '100%',
-    alignItems: 'center',
-    padding: 20,
-  },
-  uploadButton: {
-    marginTop: 20,
-    width: '80%',
-    backgroundColor: '#007AFF',
-  },
-});

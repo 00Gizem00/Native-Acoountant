@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import { TouchableOpacity, Card, Button, View } from 'react-native-ui-lib';
 
 export default function ImagePreview({
   imageUri,
@@ -9,18 +9,9 @@ export default function ImagePreview({
   onRemove: () => void;
 }) {
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: imageUri }} style={styles.image} />
-      <TouchableOpacity style={styles.removeButton} onPress={onRemove}>
-        <Text style={styles.removeText}>X</Text>
-      </TouchableOpacity>
+    <View center>
+      <Card.Image width={300} height={300} borderRadius={20} source={{ uri: imageUri }} />
+      <Button marginT-20 onPress={onRemove} label="Remove" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { position: 'relative', marginTop: 20 },
-  image: { width: 300, height: 300, borderRadius: 10 },
-  removeButton: { backgroundColor: 'red', position: 'absolute', top: 10, right: 10, borderRadius: 20 },
-  removeText: { color: 'white', fontWeight: 'bold' },
-});

@@ -1,21 +1,9 @@
-import { Text, View, StyleSheet } from "react-native";
+import { View, Text } from "react-native-ui-lib";
 
 export default function About() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Settings Screen</Text>
+    <View flex center>
+      <Text blue50 text20 marginB-s5>Settings Screen</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#25292e',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    text: {
-      color: '#ffffff',
-    },
-});

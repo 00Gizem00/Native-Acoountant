@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '@/components/ui/Button';
+import { Button, View } from 'react-native-ui-lib';
 
 export default function UploadActions({
   onPickImage,
@@ -11,10 +11,10 @@ export default function UploadActions({
   onUploadPDF: () => void;
 }) {
   return (
-    <>
-      <Button theme="primary" label="Choose a photo" onPress={onPickImage} />
-      <Button label="Take a photo" onPress={onTakePhoto} />
-      <Button label="Upload PDF" onPress={onUploadPDF} />
-    </>
+    <View>
+      <Button margin-5 label="Choose a photo" onPress={onPickImage} />
+      <Button margin-5 label="Take a photo" onPress={onTakePhoto} />
+      <Button margin-5 label="Upload PDF" onPress={onUploadPDF} />
+    </View>
   );
 }
