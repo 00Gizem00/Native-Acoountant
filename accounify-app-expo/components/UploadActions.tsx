@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, View } from 'react-native-ui-lib';
 
 export default function UploadActions({
